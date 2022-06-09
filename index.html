@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>repertoire</title>
+</head>
+<body>
+  <h1> create my repertoire</h1>
+  <form action = "/addMusicPiece" method = "POST"></form>
+ 	<input type = "text" placeholder = "composer" name="composer">
+  	<input type = "text" placeholder = "title" name="title">
+  	<input type="date" name="lastPracticed">
+  	<select id = "confidenceLevel">
+  		<option value="1">1</option>
+  		<option value="2">2</option>
+  		<option value="3">3</option>
+  		<option value="4">4</option>
+  		<option value="5">5</option>
+  	</select>
+  	<button type="submit">Add to Repertoire</button>
+  </form>
+</body>
+</html>
