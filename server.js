@@ -3,13 +3,15 @@ const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 const app = express()
 const connectionString = 'mongodb+srv://semm:ex8R50OjYd65rMgm@cluster0.oxnar.mongodb.net/?retryWrites=true&w=majority'
+app.set('view engine', 'ejs')
 
 
 MongoClient.connect(connectionString)
 
 	.then(client => {
 		console.log('Connected to Database')
-		const repertoireDB = client.db('repertoire')
+		const db = client.db('repertoire')
+		const finishedPieces = db.collection('finishedPieces')
 		app.use(bodyParser.urlencoded({extended: true}))
 		app.use(bodyParser.json())
 
@@ -18,7 +20,11 @@ MongoClient.connect(connectionString)
 		})
 	
 		app.post('/music', (request, response) => {
-  			console.log(request.body)
+  			finishedPieces.insertOne(request.body)
+  				.then(result => {
+  					response.redirect('/')
+  				})
+  			.catch(error => console.error(error))
 		})
 
 
