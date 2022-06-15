@@ -5,7 +5,7 @@
   <title>repertoire</title>
 </head>
 <body>
-  <h1> create my repertoire</h1>
+  <h1>create my repertoire</h1>
   <form action="/music" method="POST">
     <input type="text" placeholder="composer" name="composer">
     <input type="text" placeholder="musicTitle" name="musicTitle">
@@ -18,9 +18,26 @@
       <option value="5">5</option>
     </select>
     <button type="submit">Add to Repertoire</button>
-
-    <h2>see repertoire collection</h2>
-    <p></p>
   </form>
+
+  <h2>add practice date</h2>
+  <input type="text" placeholder="composer" name="composer">
+  <input type="text" placeholder="musicTitle" name="musicTitle">
+  <input type="date" placeholder="date" name="date">
+  <select placeholder="confidenceLevel" name="confidenceLevel">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button id="update" type="submit">Add Practice Date</button>
+
+
+  <script src="/main.js"></script>
 </body>
 </html>
+
+
+
+ 
