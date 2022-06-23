@@ -3,35 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <title>repertoire</title>
+  <link rel="stylesheet" href="/reset.css" />
+  <link rel="stylesheet" href="/style.css" />
+
 </head>
 <body>
-  <h1>create my repertoire</h1>
-  <form action="/music" method="POST">
-    <input type="text" placeholder="composer" name="composer">
-    <input type="text" placeholder="musicTitle" name="musicTitle">
-    <input type="date" placeholder="date" name="date">
-    <select placeholder="confidenceLevel" name="confidenceLevel">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-    <button type="submit">Add to Repertoire</button>
-  </form>
+  <section class='main'>
 
-  <h2>add practice date</h2>
-  <input type="text" placeholder="composer" name="composer">
-  <input type="text" placeholder="musicTitle" name="musicTitle">
-  <input type="date" placeholder="date" name="date">
-  <select placeholder="confidenceLevel" name="confidenceLevel">
+    <h1>Current Repertoire</h1>
+    <ul class="finishedPieces">
+      <% for(let i=0; i < info.length; i++) {%>
+          <li class="musicalPiece">
+              <span class="composer"><%= info[i].composer %></span>
+              <span class="title"><%= info[i].musicTitle %></span>
+              <span class="date"><%= info[i].date %></span>
+          </li>
+          <button class='button practiceDate' type="submit">Edit Practice Date</button>
+          <button class='button delete' type="submit">Remove from Repertoire</button>
+      <% } %>
+    </ul>
+
+  </section>
+  <section>
+    <h1>Add to Repertoire</h1>
+    <form action="/music" method="POST">
+      <input type="text" placeholder="composer" name="composer">
+      <input type="text" placeholder="musicTitle" name="musicTitle">
+      <input type="date" placeholder="date" name="date">
+      <button type="button submit">Add to Repertoire</button>
+    </form>
+  </section>
+
+
+ <!--  <h2>add practice date</h2>
+  <input id="composerUpdate" type="text" placeholder="composer" name="composer">
+  <input id="musicTitleUpdate" type="text" placeholder="musicTitle" name="musicTitle">
+  <input id="dateUpdate" type="date" placeholder="date" name="date">
+  <select id="clUpdate" placeholder="confidenceLevel" name="confidenceLevel">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
     <option value="5">5</option>
   </select>
-  <button id="update" type="submit">Add Practice Date</button>
+  <button id="update" type="submit">Add Practice Date</button> -->
 
 
   <script src="/main.js"></script>
